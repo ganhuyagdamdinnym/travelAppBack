@@ -36,6 +36,9 @@ export const TravelTypeDefs = gql`
   input DeleteInput {
     id: String
   }
+    input Id{
+    id:String
+    }
   input TravelInput {
     name: String!
     imageUrl: String!
@@ -55,5 +58,6 @@ export const TravelTypeDefs = gql`
   }
   type Query {
     getAllTravel: [Travel!]
+    get1Product(input:Id):Travel
   }
 `;

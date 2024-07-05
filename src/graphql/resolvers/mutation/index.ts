@@ -1,3 +1,3 @@
-export * from "./createTravel";
-export * from "./createUser";
-export * from "./deleteProduct";
+export * from "./product/createTravel";
+export * from "./user/createUser";
+export * from "./product/deleteProduct";

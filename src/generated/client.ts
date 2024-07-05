@@ -24,6 +24,10 @@ export type DeleteInput = {
   id?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Id = {
+  id?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type Info = {
   __typename?: 'Info';
   note?: Maybe<Scalars['String']['output']>;
@@ -65,7 +69,13 @@ export type MutationUpdateUserInfoArgs = {
 
 export type Query = {
   __typename?: 'Query';
+  get1Product?: Maybe<Travel>;
   getAllTravel?: Maybe<Array<Travel>>;
+};
+
+
+export type QueryGet1ProductArgs = {
+  input?: InputMaybe<Id>;
 };
 
 export type RunDownInput = {
