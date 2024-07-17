@@ -25,7 +25,7 @@ export type DeleteInput = {
 };
 
 export type Id = {
-  id?: InputMaybe<Scalars['String']['input']>;
+  id: Scalars['String']['input'];
 };
 
 export type Info = {
