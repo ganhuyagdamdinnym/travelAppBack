@@ -12,7 +12,10 @@ export const UserTypeDefs = gql`
     password: String
   }
   type Mutation {
-    createUser(input: CreateUserInput): User
-    updateUserInfo(input: String): User
+    createUser(input: CreateUserInput): User!
+    updateUserInfo(input: String): User!
+  }
+  type Query {
+    getAllCustomers: String
   }
 `;

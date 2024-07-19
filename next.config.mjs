@@ -2,6 +2,11 @@
 // const nextConfig = {};
 
 const nextConfig = {
+  experimental: {
+    serverActions: {
+      allowedOrigins: ["localhost:3000"],
+    },
+  },
   async headers() {
     return [
       {
@@ -40,7 +45,7 @@ const nextConfig = {
         ],
       },
       {
-        source: "/signUp/:path*",
+        source: "/uploadImage/:path*",
 
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "*" },
