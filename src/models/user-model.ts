@@ -1,3 +1,4 @@
+import { verificationCode } from "@/graphql/resolvers/mutation";
 import { model, Schema } from "mongoose";
 import mongoose from "mongoose";
 
@@ -12,6 +13,7 @@ const UserSchema = new mongoose.Schema({
   gender: String,
   currency: String,
   favorates: [String],
+  verificationCode: Number,
 });
 export const UserModel =
   mongoose.models.user || mongoose.model("user", UserSchema);
