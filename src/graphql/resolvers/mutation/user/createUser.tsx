@@ -12,6 +12,7 @@ export const createUser = async (
       name: name,
       email: email,
       password: password,
+      point: 100,
     });
     return user;
   } catch (err) {

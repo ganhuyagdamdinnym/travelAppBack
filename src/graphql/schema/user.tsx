@@ -5,6 +5,14 @@ export const UserTypeDefs = gql`
     name: String
     email: String
     password: String
+    profileImageUrl: String
+    phoneNumber: String
+    emergencyPhone: String
+    point: Int
+    gender: String
+    currency: String
+    favorates: [String]
+    payment: [String]
   }
   input CreateUserInput {
     name: String
@@ -16,19 +24,37 @@ export const UserTypeDefs = gql`
     email: String
   }
   input verificationCodeInput {
-    code: String
+    email: String!
+    code: Int!
   }
   input emailForSendingVerificationOTPInput {
     email: String!
+  }
+  input changePasswordInput {
+    email: String!
+    newPassword: String!
+  }
+  type message {
+    message: String
+  }
+  input userTokenInput {
+    token: String!
+  }
+  input bankNameInput {
+    bankName: String
+    email: String
   }
   type Mutation {
     createUser(input: CreateUserInput): User!
     updateUserInfo(input: String): User!
     loginUser(input: loginInput!): String!
-    sendCodeToEmail(input: emailForSendingVerificationOTPInput!): Int
-    verificationCode(input: verificationCodeInput): String
+    sendCodeToEmail(input: emailForSendingVerificationOTPInput!): String
+    verificationCode(input: verificationCodeInput!): String
+    changePassword(input: changePasswordInput): String
+    addPayment(input: bankNameInput): String
   }
   type Query {
     getAllCustomers: String
+    getUserInfo(input: userTokenInput!): User!
   }
 `;

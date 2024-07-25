@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
   name: String,
-  email: String,
+  email: { type: String, require: true, unique: true },
   password: String,
   profileImageUrl: String,
   phoneNumber: String,
@@ -12,6 +12,7 @@ const UserSchema = new mongoose.Schema({
   point: Number,
   gender: String,
   currency: String,
+  payment: [String],
   favorates: [String],
   verificationCode: Number,
 });

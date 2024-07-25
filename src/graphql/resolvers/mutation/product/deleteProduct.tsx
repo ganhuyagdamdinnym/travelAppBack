@@ -1,9 +1,9 @@
 import { TravelModel } from "@/models/travel-model";
-import { IdInput } from "@/generated/client";
+import { DeleteInput } from "@/generated/client";
 export const deleteProduct = async (
-  _: IdInput,
-  { input }: { input: IdInput },
-  context: IdInput
+  _: DeleteInput,
+  { input }: { input: DeleteInput },
+  context: DeleteInput
 ) => {
   const { id } = input;
   try {

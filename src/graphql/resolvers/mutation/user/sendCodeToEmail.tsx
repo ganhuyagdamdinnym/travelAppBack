@@ -1,4 +1,5 @@
 import { EmailForSendingVerificationOtpInput } from "@/generated/client";
+import { UserModel } from "@/models/user-model";
 import nodemailer from "nodemailer";
 
 const transport = nodemailer.createTransport({
@@ -29,8 +30,17 @@ export const sendCodeToEmail = async (
   };
 
   try {
-    await transport.sendMail(options);
-    console.log("Email sent successfully");
+    const user = await UserModel.findOneAndUpdate(
+      { email: email },
+      {
+        verificationCode: randomNumber,
+      }
+    );
+    if (user) {
+      await transport.sendMail(options);
+    }
+
+    return "sent code to email";
   } catch (err) {
     console.error("Error sending email:", err);
   }

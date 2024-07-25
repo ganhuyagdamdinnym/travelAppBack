@@ -41,13 +41,31 @@ export type InformationInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  addPayment?: Maybe<Scalars['String']['output']>;
+  changePassword?: Maybe<Scalars['String']['output']>;
+  createOrder?: Maybe<Scalars['String']['output']>;
   createTravel?: Maybe<Travel>;
   createUser: User;
   deleteProduct?: Maybe<Travel>;
   loginUser: Scalars['String']['output'];
-  sendCodeToEmail?: Maybe<Scalars['Int']['output']>;
+  sendCodeToEmail?: Maybe<Scalars['String']['output']>;
   updateUserInfo: User;
   verificationCode?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type MutationAddPaymentArgs = {
+  input?: InputMaybe<BankNameInput>;
+};
+
+
+export type MutationChangePasswordArgs = {
+  input?: InputMaybe<ChangePasswordInput>;
+};
+
+
+export type MutationCreateOrderArgs = {
+  input: CreateOrderInput;
 };
 
 
@@ -82,7 +100,7 @@ export type MutationUpdateUserInfoArgs = {
 
 
 export type MutationVerificationCodeArgs = {
-  input?: InputMaybe<VerificationCodeInput>;
+  input: VerificationCodeInput;
 };
 
 export type Query = {
@@ -90,11 +108,17 @@ export type Query = {
   get1Product?: Maybe<Travel>;
   getAllCustomers?: Maybe<Scalars['String']['output']>;
   getAllTravel?: Maybe<Array<Travel>>;
+  getUserInfo: User;
 };
 
 
 export type QueryGet1ProductArgs = {
   input?: InputMaybe<Id>;
+};
+
+
+export type QueryGetUserInfoArgs = {
+  input: UserTokenInput;
 };
 
 export type RunDownInput = {
@@ -134,9 +158,33 @@ export type TravelInput = {
 
 export type User = {
   __typename?: 'User';
+  currency?: Maybe<Scalars['String']['output']>;
   email?: Maybe<Scalars['String']['output']>;
+  emergencyPhone?: Maybe<Scalars['String']['output']>;
+  favorates?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  gender?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   password?: Maybe<Scalars['String']['output']>;
+  payment?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  phoneNumber?: Maybe<Scalars['String']['output']>;
+  point?: Maybe<Scalars['Int']['output']>;
+  profileImageUrl?: Maybe<Scalars['String']['output']>;
+};
+
+export type BankNameInput = {
+  bankName?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ChangePasswordInput = {
+  email: Scalars['String']['input'];
+  newPassword: Scalars['String']['input'];
+};
+
+export type CreateOrderInput = {
+  couponCode?: InputMaybe<Scalars['String']['input']>;
+  createdAt?: InputMaybe<Scalars['String']['input']>;
+  userId: Scalars['String']['input'];
 };
 
 export type EmailForSendingVerificationOtpInput = {
@@ -148,14 +196,33 @@ export type LoginInput = {
   password?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Message = {
+  __typename?: 'message';
+  message?: Maybe<Scalars['String']['output']>;
+};
+
+export type Order = {
+  __typename?: 'order';
+  _id?: Maybe<Scalars['String']['output']>;
+  couponCode?: Maybe<Scalars['String']['output']>;
+  createdAt?: Maybe<Scalars['String']['output']>;
+  state?: Maybe<Scalars['String']['output']>;
+  userId?: Maybe<Scalars['String']['output']>;
+};
+
 export type RunDown = {
   __typename?: 'runDown';
   description?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
 };
 
+export type UserTokenInput = {
+  token: Scalars['String']['input'];
+};
+
 export type VerificationCodeInput = {
-  code?: InputMaybe<Scalars['String']['input']>;
+  code: Scalars['Int']['input'];
+  email: Scalars['String']['input'];
 };
 
 
