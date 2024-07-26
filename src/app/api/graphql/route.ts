@@ -15,6 +15,7 @@ connect();
 const server = new ApolloServer({
   typeDefs: TypeDefs,
   resolvers,
+  introspection: true,
 });
 
 // Typescript: req has the type NextRequest
