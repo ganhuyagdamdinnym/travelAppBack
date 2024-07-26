@@ -5,12 +5,14 @@ export const createOrder = async (
   { input }: { input: CreateOrderInput },
   context: any
 ) => {
-  const { userId, couponCode, createdAt } = input;
+  const { userEmail, couponCode, createdAt, ticketQuantity } = input;
+  console.log("imput", input);
   try {
     await OrderModel.create({
-      userId: userId,
+      userEmail: userEmail,
       state: "pending",
       couponCode: couponCode,
+      ticketQuantity: ticketQuantity,
     });
     return "created successful";
   } catch (err) {
