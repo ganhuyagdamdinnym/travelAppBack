@@ -3,8 +3,7 @@ import { TravelInput } from "@/generated/client";
 
 export const createTravel = async (
   _: any,
-  { input }: { input: TravelInput },
-  context: any
+  { input }: { input: TravelInput }
 ) => {
   const {
     name,

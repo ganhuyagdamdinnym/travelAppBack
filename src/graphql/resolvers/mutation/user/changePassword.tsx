@@ -4,8 +4,7 @@ import jwt from "jsonwebtoken";
 
 export const changePassword = async (
   _: ChangePasswordInput,
-  { input }: { input: ChangePasswordInput },
-  context: ChangePasswordInput
+  { input }: { input: ChangePasswordInput }
 ) => {
   const { email, newPassword } = input;
   try {

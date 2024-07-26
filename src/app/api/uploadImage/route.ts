@@ -9,12 +9,6 @@ cloudinary.config({
   secure: true,
 });
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
 type Data = {
   message: string;
   url?: string;
@@ -30,7 +24,6 @@ export const POST = async (req: NextRequest, res: NextApiResponse<Data>) => {
   const encoding = "base64";
   const base64Data = Buffer.from(fileBuffer).toString("base64");
 
-  // this will be used to upload the file
   const fileUri = "data:" + mimeType + ";" + encoding + "," + base64Data;
   try {
     const upload = await cloudinary.uploader.upload(fileUri, {
@@ -46,15 +39,3 @@ export const POST = async (req: NextRequest, res: NextApiResponse<Data>) => {
     console.error(err);
   }
 };
-// try {
-//   const result = await cloudinary.uploader.upload(file.name, {
-//     folder: "product",
-//     public_id: undefined,
-//   });
-//   return Response.json({
-//     message: "File uploaded successfully.",
-//     url: result.public_id,
-//   });
-// } catch (error) {
-//   return Response.json("error");
-// }

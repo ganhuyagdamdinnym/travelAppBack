@@ -2,8 +2,7 @@ import { TravelModel } from "@/models/travel-model";
 import { DeleteInput } from "@/generated/client";
 export const deleteProduct = async (
   _: DeleteInput,
-  { input }: { input: DeleteInput },
-  context: DeleteInput
+  { input }: { input: DeleteInput }
 ) => {
   const { id } = input;
   try {

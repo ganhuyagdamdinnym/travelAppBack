@@ -4,8 +4,7 @@ import jwt from "jsonwebtoken";
 
 export const getUserInfo = async (
   _: UserTokenInput,
-  { input }: { input: UserTokenInput },
-  context: UserTokenInput
+  { input }: { input: UserTokenInput }
 ) => {
   const { token } = input;
   const decoded = jwt.verify(token, "SomeSecretKey") as { id: string };

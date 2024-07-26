@@ -3,8 +3,7 @@ import { BankNameInput } from "@/generated/client";
 
 export const addPayment = async (
   _: any,
-  { input }: { input: BankNameInput },
-  context: any
+  { input }: { input: BankNameInput }
 ) => {
   const { bankName, email } = input;
   try {

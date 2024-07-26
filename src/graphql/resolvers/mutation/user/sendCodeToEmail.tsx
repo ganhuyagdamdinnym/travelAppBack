@@ -14,9 +14,8 @@ const transport = nodemailer.createTransport({
 });
 
 export const sendCodeToEmail = async (
-  _: any, // Assuming you don't need to use this parameter
-  { input }: { input: EmailForSendingVerificationOtpInput },
-  context: any // Assuming you don't need to use this parameter
+  _: any,
+  { input }: { input: EmailForSendingVerificationOtpInput }
 ) => {
   const { email } = input;
   const randomNumber = Math.floor(100000 + Math.random() * 900000);

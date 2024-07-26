@@ -2,8 +2,7 @@ import { UserModel } from "@/models/user-model";
 import { CreateUserInput } from "@/generated/client";
 export const createUser = async (
   _: CreateUserInput,
-  { input }: { input: CreateUserInput },
-  context: CreateUserInput
+  { input }: { input: CreateUserInput }
 ) => {
   const { name, email, password } = input;
   console.log("input", input);

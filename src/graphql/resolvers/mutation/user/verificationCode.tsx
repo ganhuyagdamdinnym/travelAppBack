@@ -2,8 +2,7 @@ import { UserModel } from "@/models/user-model";
 import { VerificationCodeInput } from "@/generated/client";
 export const verificationCode = async (
   _: VerificationCodeInput,
-  { input }: { input: VerificationCodeInput },
-  context: VerificationCodeInput
+  { input }: { input: VerificationCodeInput }
 ) => {
   const { email, code } = input;
   try {

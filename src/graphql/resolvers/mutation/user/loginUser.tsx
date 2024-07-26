@@ -5,8 +5,7 @@ import { LoginInput } from "@/generated/client";
 
 export const loginUser = async (
   _: LoginInput,
-  { input }: { input: LoginInput },
-  context: LoginInput
+  { input }: { input: LoginInput }
 ) => {
   const { email, password } = input;
   try {

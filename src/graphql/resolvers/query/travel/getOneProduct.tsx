@@ -1,11 +1,7 @@
 import { Id } from "@/generated/client";
 import { TravelModel } from "@/models/travel-model";
 
-export const get1Product = async (
-  _: Id,
-  { input }: { input: Id },
-  context: Id
-) => {
+export const get1Product = async (_: Id, { input }: { input: Id }) => {
   const { id } = input;
   console.log(",,,", input);
   try {
