@@ -9,9 +9,10 @@ export const OrderTypeDefs = gql`
     state: String
   }
   input createOrderInput {
-    userId: String!
+    ticketQuantity: Int
     couponCode: String
     createdAt: String
+    userEmail: String
   }
   type Mutation {
     createOrder(input: createOrderInput!): String

@@ -4,6 +4,11 @@ const OrderSchema = new Schema({
   id: String,
   userId: String,
   couponCode: String,
+  ticketQuantity: {
+    type: Number,
+    required: true,
+  },
+  userEmail: String,
   createdAt: String,
   state: { type: String, enum: ["pending", "done", "purchased", "canceled"] },
 });
